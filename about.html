@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .hero-section {
+            height: 60vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/kashmir2.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .main-content {
+            padding: 100px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .intro-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        .intro-section h2::after {
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #4CAF50;
+        }
+
+        .intro-section p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 30px auto 0;
+            color: #555;
+        }
+
+        .sections-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .section-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .section-icon {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .section-icon i {
+            font-size: 48px;
+        }
+
+        .section-content {
+            padding: 30px;
+        }
+
+        .section-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .section-content p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .why-travel-section {
+            background-color: #f1f8e9;
+            padding: 80px 50px;
+            margin: 0 auto 80px;
+            max-width: 1200px;
+            border-radius: 10px;
+        }
+
+        .why-travel-section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #333;
+            position: relative;
+        }
+
+        .why-travel-section h2::after {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #4CAF50;
+        }
+
+        .reasons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+        .reason-item {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .reason-item i {
+            font-size: 36px;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        .reason-item h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .reason-item p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-logo h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #4CAF50;
+        }
+
+        .footer-logo p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-links h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .footer-social {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-social h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background-color: #4CAF50;
+            transform: translateY(-3px);
+        }
+
+        .footer-contact {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-contact h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-contact p {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+                position: relative;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            nav ul li {
+                margin: 5px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+                padding: 5px 10px;
+            }
+
+            .hero-section {
+                height: 30vh;
+                margin-top: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+                padding: 0 20px;
+            }
+
+            .main-content {
+                padding: 30px 15px;
+            }
+
+            .contact-form-section {
+                padding: 20px;
+            }
+
+            .form-title {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .gender-options {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .contact-details {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .contact-info,
+            .social-media {
+                padding: 20px;
+            }
+
+            .info-title,
+            .social-title {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .contact-item {
+                margin-bottom: 12px;
+            }
+
+            .social-icons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .social-icon {
+                margin: 5px;
+            }
+
+            .map-section {
+                height: 250px;
+                margin-bottom: 20px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-logo,
+            .footer-links,
+            .footer-social,
+            .footer-contact {
+                min-width: 100%;
+                text-align: center;
+            }
+
+            .footer-social-icons {
+                justify-content: center;
+            }
+
+            .footer-contact p {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">KASHMIR PARADISE</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" style="color: #4CAF50;">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>About Kashmir Paradise</h1>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <section class="intro-section">
+            <h2 style="color: #4CAF50;">Welcome to Kashmir Paradise</h2>
+            <p>At Kashmir Paradise, we are passionate about showcasing the breathtaking beauty and rich cultural
+                heritage of Kashmir, often referred to as "Heaven on Earth." Our mission is to provide travelers with
+                authentic experiences that go beyond typical tourism, allowing them to immerse themselves in the natural
+                wonders, warm hospitality, and unique traditions of this enchanting region.</p>
+        </section>
+
+        <section class="sections-container">
+            <div class="section-card">
+                <div class="section-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <div class="section-content">
+                    <h3>Our Mission</h3>
+                    <p>To create unforgettable travel experiences that showcase the natural beauty and cultural richness
+                        of Kashmir while promoting sustainable tourism practices that benefit local communities and
+                        preserve the environment for future generations.</p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="section-content">
+                    <h3>Our Vision</h3>
+                    <p>To become the premier travel service for Kashmir tourism, recognized worldwide for our commitment
+                        to excellence, authenticity, and responsible travel practices that showcase the true essence of
+                        this paradise on Earth.</p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="section-content">
+                    <h3>Why Choose Us</h3>
+                    <p>With over 20 years of experience, our team of local experts ensures personalized journeys that
+                        respect local culture and environment. We offer authentic experiences, sustainable practices,
+                        and unwavering commitment to customer satisfaction.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-travel-section">
+            <h2>Why Travel to Kashmir</h2>
+            <div class="reasons-container">
+                <div class="reason-item">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Breathtaking Landscapes</h3>
+                    <p>From snow-capped mountains to pristine lakes and lush valleys, Kashmir offers some of the most
+                        stunning natural scenery in the world.</p>
+                </div>
+
+                <div class="reason-item">
+                    <i class="fas fa-landmark"></i>
+                    <h3>Rich Cultural Heritage</h3>
+                    <p>Experience the unique blend of Hindu, Muslim, and Buddhist influences in Kashmir's architecture,
+                        art, cuisine, and traditions.</p>
+                </div>
+
+                <div class="reason-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Warm Hospitality</h3>
+                    <p>The Kashmiri people are known for their warmth and generosity, making every visitor feel welcome
+                        and cherished.</p>
+                </div>
+
+                <div class="reason-item">
+                    <i class="fas fa-spa"></i>
+                    <h3>Peace & Tranquility</h3>
+                    <p>Escape the hustle and bustle of city life and find peace in the serene surroundings of Kashmir's
+                        natural landscapes.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>KASHMIR PARADISE</h2>
+                <p>Experience heaven on earth with our exclusive Kashmir tours and packages.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Srinagar, Jammu & Kashmir, India</p>
+                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                <p><i class="fas fa-envelope"></i> info@kashmirparadise.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>@2025 Kashmir Paradise. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
