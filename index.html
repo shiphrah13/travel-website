@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashmir Travel Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .hero-section {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/kashmir1.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 0 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            color: white;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-section {
+            padding: 100px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            color: #333;
+        }
+
+        .section-title::after {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #4CAF50;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .stats-section {
+            background-color: #f1f8e9;
+            padding: 80px 50px;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .stat-item {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .destinations-section {
+            padding: 100px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .destinations-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .destinations-container {
+            display: flex;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+        .destination-card {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .destination-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .destination-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .destination-card:hover .destination-image img {
+            transform: scale(1.1);
+        }
+
+        .destination-content {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .destination-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .destination-content p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .gallery-section {
+            padding: 100px 50px;
+            background-color: #f1f8e9;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            color: #333;
+        }
+
+        .gallery-title::after {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #4CAF50;
+        }
+
+        .gallery-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 30px auto 50px;
+            color: #555;
+            font-size: 18px;
+        }
+
+        .gallery-images {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 400px;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: transparent;
+            color: #4CAF50;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: 2px solid #4CAF50;
+        }
+
+        .btn-secondary:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .package-section {
+            padding: 100px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .package-container {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-image {
+            flex: 1;
+            height: 500px;
+        }
+
+        .package-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .package-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .package-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .package-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .package-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+        }
+
+        .package-detail i {
+            color: #4CAF50;
+        }
+
+        .package-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4CAF50;
+            margin-bottom: 30px;
+        }
+
+        .tours-section {
+            padding: 100px 50px;
+            background-color: #f1f8e9;
+        }
+
+        .tours-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tours-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            color: #333;
+        }
+
+        .tours-title::after {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #4CAF50;
+        }
+
+        .tours-cards {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .tour-card {
+            flex: 1;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tour-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .tour-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tour-content {
+            padding: 20px;
+        }
+
+        .tour-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .tour-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .tour-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #4CAF50;
+        }
+
+        .tours-banner {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tours-banner h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-logo h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #4CAF50;
+        }
+
+        .footer-logo p {
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-links h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .footer-social {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-social h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background-color: #4CAF50;
+            transform: translateY(-3px);
+        }
+
+        .footer-contact {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-contact h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-contact p {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            nav ul {
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .main-content {
+                padding: 80px 20px;
+            }
+
+            .sections-container {
+                flex-direction: column;
+            }
+
+            .reasons-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero-section">
+        <header>
+            <div class="logo">KASHMIR PARADISE</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="hero-content">
+            <h1>Experience Heaven on Earth: Unforgettable Kashmir Adventures</h1>
+            <p>Discover the breathtaking beauty of the crown of India with our exclusive tours and experiences.</p>
+            <a href="#" class="btn">Book Your Journey Now</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2 class="section-title" style="color: #4CAF50;">About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>The captivating journey of Kashmir started decades ago when the founder of our company first laid
+                    eyes on the splendour of the land. We took it upon ourselves to make sure the mesmerising landscape,
+                    the welcoming Kashmiri people, as well as the pristine lakes and snow capped mountains, are
+                    experienced by the entire world.</p>
+                <p>Our organisation is the first and best travel company in Kashmir. We make sure to provide our clients
+                    with real life experiences that are not usually offered. We engage local specialists who ensure that
+                    every trip is customized, responsibly planned, and aligned to the local customs and surroundings, in
+                    the least intrusive way possible.</p>
+                <p>People do not consider a trip to Kashmir as a leisure holiday. It is rather, an insightful journey,
+                    and it holds the capacity to alter the inner self of an individual. We are sure that you will fall
+                    in love with Kashmir and will appreciate the pristine Dal Lake, Mughal gardens, calm mountain
+                    estates, splendid local shops, and other fascinating holiday destinations.</p>
+            </div>
+            <div class="about-image">
+                <img src="img/headingkashmir.jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-text">Customer Satisfaction</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-text">Popular Destinations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div class="stat-text">Expert Local Guides</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-text">Years of Experience</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations-section">
+        <h2 class="destinations-title" style="color: #4CAF50;">A unique blend of adventure, culture, and natural wonders
+        </h2>
+        <div class="destinations-container">
+            <div class="destination-card">
+                <div class="destination-image">
+                    <img src="img/dallake.jpg" alt="Dal Lake">
+                </div>
+                <div class="destination-content">
+                    <h3>Dal Lake</h3>
+                    <p>The jewel of Srinagar, famous for its houseboats, shikara rides, and floating gardens.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-image">
+                    <img src="img/gulmarg.jpeg" alt="Gulmarg">
+                </div>
+                <div class="destination-content">
+                    <h3>Gulmarg</h3>
+                    <p>A meadow of flowers surrounded by snow-capped mountains, offering world-class skiing and gondola
+                        rides.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-image">
+                    <img src="img/pahalgam.jpg" alt="Pahalgam">
+                </div>
+                <div class="destination-content">
+                    <h3>Pahalgam</h3>
+                    <p>The valley of shepherds, known for its pristine rivers, lush meadows, and the starting point of
+                        the Amarnath Yatra.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <h2 class="gallery-title" style="color: #4CAF50;">Galleries</h2>
+            <p class="gallery-subtitle">A visual journey through the lens, one snapshot at a time capturing the essence
+                of our travel adventures in Kashmir.</p>
+            <div class="gallery-images">
+                <div class="gallery-image">
+                    <img src="img/kashmir1.jpg" alt="">
+                </div>
+                <div class="gallery-image">
+                    <img src="img/kashmir2.jpg" alt="">
+                </div>
+            </div>
+            <div class="gallery-buttons">
+                <a href="#" class="btn-secondary">Explore More</a>
+                <a href="about.html" class="btn">About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Section -->
+    <section class="package-section">
+        <div class="package-container">
+            <div class="package-image">
+                <img src="img/houseboat.jpg" alt="Kashmir Houseboat">
+            </div>
+            <div class="package-content">
+                <h2 class="package-title">The Kashmir Dream</h2>
+                <div class="package-details">
+                    <div class="package-detail">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>5 Days</span>
+                    </div>
+                    <div class="package-detail">
+                        <i class="fas fa-calendar"></i>
+                        <span>Apr - Oct</span>
+                    </div>
+                    <div class="package-detail">
+                        <i class="fas fa-signal"></i>
+                        <span>Easy</span>
+                    </div>
+                    <div class="package-detail">
+                        <i class="fas fa-plane"></i>
+                        <span>Srinagar Airport</span>
+                    </div>
+                    <div class="package-detail">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Flexible</span>
+                    </div>
+                </div>
+                <div class="package-price">From ₹5999</div>
+                <a href="#" class="btn">Booking Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section class="tours-section">
+        <div class="tours-container">
+            <h2 class="tours-title" style="color: #4CAF50;">Popular Tours</h2>
+            <div class="tours-cards">
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="img/shikaraboat.jpg" alt="Shikaara Boats">
+                    </div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Shikara Boat Side</h3>
+                        <div class="tour-details">
+                            <span>5 days 4 nights</span>
+                            <span class="tour-price">₹11,499/person</span>
+                        </div>
+                        <p>Experience the tranquility of Dal Lake with our exclusive houseboat stay and shikara rides.
+                        </p>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="img/gul_adventure.jpg" alt="Gulmarg Adventure">
+                    </div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Gulmarg Adventures</h3>
+                        <div class="tour-details">
+                            <span>3 days 2 nights</span>
+                            <span class="tour-price">₹8499/person</span>
+                        </div>
+                        <p>Adventure awaits in Gulmarg with skiing, gondola rides, and breathtaking mountain views.</p>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="img/kashmir2.jpg" alt="Kashmir Valley">
+                    </div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Kashmir Valley's</h3>
+                        <div class="tour-details">
+                            <span>7 days 6 nights</span>
+                            <span class="tour-price">₹17,999/person</span>
+                        </div>
+                        <p>Explore the entire Kashmir valley from Srinagar to Pahalgam, Sonmarg, and Gulmarg.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tours-banner">
+                <h3>Find the perfect trip for you and discover extraordinary adventures with us!</h3>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>KASHMIR PARADISE</h2>
+                <p>Experience heaven on earth with our exclusive Kashmir tours and packages.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Srinagar, Jammu & Kashmir, India</p>
+                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                <p><i class="fas fa-envelope"></i> info@kashmirparadise.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>@2025 Kashmir Paradise. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
